@@ -16,8 +16,8 @@ namespace OpenCVSharpSample08
 
                 var openCloseWindow = new Window("Open/Close", image: dst);
                 var openCloseTrackbar = openCloseWindow.CreateTrackbar(
-                    name: "Iterations", value: 0, max: maxIterations * 2 + 1,
-                    callback: (pos, obj) =>
+                     "Iterations",  0, max: maxIterations * 2 + 1,
+                    callback: pos =>
                     {
                         var n = pos - maxIterations;
                         var an = n > 0 ? n : -n;
@@ -45,8 +45,8 @@ namespace OpenCVSharpSample08
 
                 var erodeDilateWindow = new Window("Erode/Dilate", image: dst);
                 var erodeDilateTrackbar = erodeDilateWindow.CreateTrackbar(
-                    name: "Iterations", value: 0, max: maxIterations * 2 + 1,
-                    callback: (pos, obj) =>
+                    "Iterations",  0, max: maxIterations * 2 + 1,
+                    callback: pos =>
                     {
                         var n = pos - maxIterations;
                         var an = n > 0 ? n : -n;

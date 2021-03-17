@@ -10,25 +10,25 @@ namespace OpenCVSharpSample10
             using (var src = new Mat(@"..\..\Images\Penguin.Png", ImreadModes.AnyDepth | ImreadModes.AnyColor))
             {
                 using (var sourceWindow = new Window("Source", image: src,
-                       flags: WindowMode.AutoSize | WindowMode.FreeRatio))
+                       flags: WindowFlags.AutoSize | WindowFlags.FreeRatio))
                 {
                     using (var histogramWindow = new Window("Histogram",
-                           flags: WindowMode.AutoSize | WindowMode.FreeRatio))
+                           flags: WindowFlags.AutoSize | WindowFlags.FreeRatio))
                     {
                         var brightness = 100;
                         var contrast = 100;
 
                         var brightnessTrackbar = sourceWindow.CreateTrackbar(
-                                name: "Brightness", value: brightness, max: 200,
-                                callback: (pos, obj) =>
+                                 "Brightness",  brightness, max: 200,
+                                callback: pos =>
                                 {
                                     brightness = pos;
                                     updateImageCalculateHistogram(sourceWindow, histogramWindow, src, brightness, contrast);
                                 });
 
                         var contrastTrackbar = sourceWindow.CreateTrackbar(
-                            name: "Contrast", value: contrast, max: 200,
-                            callback: (pos, obj) =>
+                             "Contrast",  contrast, max: 200,
+                            callback: pos=>
                             {
                                 contrast = pos;
                                 updateImageCalculateHistogram(sourceWindow, histogramWindow, src, brightness, contrast);

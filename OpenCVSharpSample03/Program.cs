@@ -18,7 +18,7 @@ namespace OpenCVSharpSample03
                     src.CopyTo(srcCopy);
                     Cv2.CvtColor(srcCopy, srcCopy, ColorConversionCodes.BGRA2GRAY);
 
-                    using (var sourceWindow = new Window("A GrayScale Clone", image: srcCopy, flags: WindowMode.AutoSize))
+                    using (var sourceWindow = new Window("A GrayScale Clone", image: srcCopy, flags: WindowFlags.AutoSize))
                     {
                         Cv2.WaitKey();
                     }

@@ -38,7 +38,7 @@ namespace OpenCVSharpSample11
                     k: clustersCount,
                     bestLabels: bestLabels,
                     criteria:
-                        new TermCriteria(type: CriteriaType.Eps | CriteriaType.MaxIter, maxCount: 10, epsilon: 1.0),
+                        new TermCriteria(type: CriteriaTypes.Eps | CriteriaTypes.MaxIter, maxCount: 10, epsilon: 1.0),
                     attempts: 3,
                     flags: KMeansFlags.PpCenters,
                     centers: centers);
@@ -70,7 +70,7 @@ namespace OpenCVSharpSample11
         /// </summary>
         private static void example01()
         {
-            using (var window = new Window("Clusters", flags: WindowMode.AutoSize | WindowMode.FreeRatio))
+            using (var window = new Window("Clusters", flags: WindowFlags.AutoSize | WindowFlags.FreeRatio))
             {
                 const int maxClusters = 5;
                 var rng = new RNG(state: (ulong)DateTime.Now.Ticks);
@@ -106,7 +106,7 @@ namespace OpenCVSharpSample11
                             b: new Scalar(img.Cols * 0.05f, img.Rows * 0.05f));
                     }
 
-                    Cv2.RandShuffle(dst: points, iterFactor: 1, rng: rng);
+                    Cv2.RandShuffle(dst: points, iterFactor: 1, ref rng);
 
                     var labels = new Mat();
                     var centers = new Mat(rows: clustersCount, cols: 1, type: points.Type());
@@ -114,7 +114,7 @@ namespace OpenCVSharpSample11
                         data: points,
                         k: clustersCount,
                         bestLabels: labels,
-                        criteria: new TermCriteria(CriteriaType.Eps | CriteriaType.MaxIter, 10, 1.0),
+                        criteria: new TermCriteria(CriteriaTypes.Eps | CriteriaTypes.MaxIter, 10, 1.0),
                         attempts: 3,
                         flags: KMeansFlags.PpCenters,
                         centers: centers);
@@ -132,7 +132,7 @@ namespace OpenCVSharpSample11
                     for (var i = 0; i < samplesCount; i++)
                     {
                         var clusterIdx = labels.At<int>(i);
-                        Point ipt = points.At<Point2f>(i);
+                        Point ipt = points.At<Point>(i);
                         Cv2.Circle(
                             img: img,
                             center: ipt,

@@ -3,13 +3,12 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using OpenCvSharp;
-using OpenCvSharp.UserInterface;
 
 namespace OpenCVSharpSample06WinForms
 {
     public partial class FrmMain : Form
     {
-        private PictureBoxIpl _pictureBoxIpl1;
+        private PictureBox _pictureBoxIpl1;
         private BackgroundWorker _worker;
 
         public FrmMain()
@@ -100,7 +99,7 @@ namespace OpenCVSharpSample06WinForms
 
         private void FrmMain_Load(object sender, System.EventArgs e)
         {
-            _pictureBoxIpl1 = new PictureBoxIpl
+            _pictureBoxIpl1 = new PictureBox
             {
                 AutoSize = true
             };
@@ -109,7 +108,7 @@ namespace OpenCVSharpSample06WinForms
 
         private void workerDoReadCamera(object sender, DoWorkEventArgs e)
         {
-            using (var capture = new VideoCapture(CaptureDevice.Any, index: 0))
+            using (var capture = new VideoCapture(0))
             {
                 var fps = getFps(capture);
                 capture.Fps = fps;
@@ -159,7 +158,7 @@ namespace OpenCVSharpSample06WinForms
             if (image == null) return;
 
             //Cv.Not(image, image);
-            _pictureBoxIpl1.RefreshIplImage(image);
+            //_pictureBoxIpl1.Refresh(image);
         }
 
         private void workerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

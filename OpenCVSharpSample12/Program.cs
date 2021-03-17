@@ -33,22 +33,22 @@ namespace OpenCVSharpSample12
             };
 
             var previousPoint = new Point(-1, -1);
-            sourceWindow.OnMouseCallback += (@event, x, y, flags) =>
+            sourceWindow.SetMouseCallback( (@event, x, y, flags,ptr) =>
             {
                 if (x < 0 || x >= srcCopy.Cols || y < 0 || y >= srcCopy.Rows)
                 {
                     return;
                 }
 
-                if (@event == MouseEvent.LButtonUp || !flags.HasFlag(MouseEvent.FlagLButton))
+                if (@event == MouseEventTypes.LButtonUp)
                 {
                     previousPoint = new Point(-1, -1);
                 }
-                else if (@event == MouseEvent.LButtonDown)
+                else if (@event == MouseEventTypes.LButtonDown)
                 {
                     previousPoint = new Point(x, y);
                 }
-                else if (@event == MouseEvent.MouseMove && flags.HasFlag(MouseEvent.FlagLButton))
+                else if (@event == MouseEventTypes.MouseMove)
                 {
                     var pt = new Point(x, y);
                     if (previousPoint.X < 0)
@@ -61,7 +61,7 @@ namespace OpenCVSharpSample12
                     previousPoint = pt;
                     sourceWindow.Image = srcCopy;
                 }
-            };
+            });
 
             var rnd = new Random();
 

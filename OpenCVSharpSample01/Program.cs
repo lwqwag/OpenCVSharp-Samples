@@ -23,7 +23,7 @@ namespace OpenCVSharpSample01
 
                 src.CopyTo(dst);
 
-                using (var window = new Window("window", image: dst, flags: WindowMode.AutoSize))
+                using (var window = new Window("window", image: dst, flags: WindowFlags.AutoSize))
                 {
                     Cv2.WaitKey();
                 }

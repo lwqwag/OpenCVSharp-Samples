@@ -22,7 +22,7 @@ namespace OpenCVSharpSample15
                 image: grayImage,
                 scaleFactor: 1.1,
                 minNeighbors: 2,
-                flags: HaarDetectionType.DoRoughSearch | HaarDetectionType.ScaleImage,
+                flags: HaarDetectionTypes.DoRoughSearch | HaarDetectionTypes.ScaleImage,
                 minSize: new Size(30, 30)
                 );
 
@@ -46,7 +46,7 @@ namespace OpenCVSharpSample15
                     image: detectedFaceGrayImage,
                     scaleFactor: 1.1,
                     minNeighbors: 2,
-                    flags: HaarDetectionType.DoRoughSearch | HaarDetectionType.ScaleImage,
+                    flags: HaarDetectionTypes.DoRoughSearch | HaarDetectionTypes.ScaleImage,
                     minSize: new Size(30, 30)
                     );
 

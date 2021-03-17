@@ -25,12 +25,12 @@ namespace OpenCVSharpSample04WinForms
             {
                 Cv2.Dilate(iplImage, iplImage, new Mat());
 
-                var pictureBoxIpl = new OpenCvSharp.UserInterface.PictureBoxIpl
-                {
-                    ImageIpl = iplImage,
-                    AutoSize = true
-                };
-                flowLayoutPanel1.Controls.Add(pictureBoxIpl);
+                //var pictureBoxIpl = new OpenCvSharp.UserInterface.PictureBoxIpl
+                //{
+                //    ImageIpl = iplImage,
+                //    AutoSize = true
+                //};
+                //flowLayoutPanel1.Controls.Add(pictureBoxIpl);
 
 
                 //How to redraw:

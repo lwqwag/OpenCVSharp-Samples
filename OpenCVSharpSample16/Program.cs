@@ -30,7 +30,7 @@ namespace OpenCVSharpSample16
                 image: grayImage,
                 scaleFactor: 1.1,
                 minNeighbors: 2,
-                flags: HaarDetectionType.DoRoughSearch | HaarDetectionType.ScaleImage,
+                flags: HaarDetectionTypes.DoRoughSearch | HaarDetectionTypes.ScaleImage,
                 minSize: new Size(30, 30)
                 );
 

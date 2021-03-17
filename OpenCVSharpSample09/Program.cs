@@ -12,14 +12,14 @@ namespace OpenCVSharpSample09
                 src.CopyTo(dst);
 
                 using (var window = new Window("Resize/Rotate/Blur",
-                                                image: dst, flags: WindowMode.AutoSize))
+                                                image: dst, flags: WindowFlags.AutoSize))
                 {
                     var angle = 0.0;
                     var scale = 0.7;
 
                     var angleTrackbar = window.CreateTrackbar(
-                        name: "Angle", value: 0, max: 180,
-                        callback: (pos, obj) =>
+                         "Angle",  0, max: 180,
+                        callback: (pos) =>
                         {
                             angle = pos;
                             rotateImage(angle, scale, src, dst);
@@ -27,8 +27,8 @@ namespace OpenCVSharpSample09
                         });
 
                     var scaleTrackbar = window.CreateTrackbar(
-                        name: "Scale", value: 1, max: 10,
-                        callback: (pos, obj) =>
+                         "Scale",  1, max: 10,
+                        callback: (pos) =>
                         {
                             scale = pos / 10f;
                             rotateImage(angle, scale, src, dst);
@@ -36,8 +36,8 @@ namespace OpenCVSharpSample09
                         });
 
                     var resizeTrackbar = window.CreateTrackbar(
-                        name: "Resize", value: 1, max: 100,
-                        callback: (pos, obj) =>
+                         "Resize",  1, max: 100,
+                        callback: (pos) =>
                         {
                             rotateImage(angle, scale, src, dst);
                             Cv2.Resize(dst, dst,
@@ -47,8 +47,8 @@ namespace OpenCVSharpSample09
                         });
 
                     var blurTrackbar = window.CreateTrackbar(
-                       name: "Blur", value: 1, max: 100,
-                       callback: (pos, obj) =>
+                        "Blur",  1, max: 100,
+                       callback: (pos) =>
                        {
                            if (pos % 2 == 0) pos++;
 

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 using OpenCvSharp;
-using OpenCvSharp.Extensions;
+using OpenCvSharp.WpfExtensions;
 
 namespace OpenCVSharpSample05Wpf
 {
