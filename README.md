@@ -1,6 +1,6 @@
 OpenCVSharp Samples
 =======
-A collection of samples about using OpenCV in .NET applications.
+A collection of samples about using OpenCV in .NET applications,fork from (https://github.com/VahidN/OpenCVSharp-Samples).
 
 
 - **Sample01**: How to create a simple 2D image and show it using OpenCV Window.
